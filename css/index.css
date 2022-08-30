@@ -25,3 +25,19 @@
 .main-actions__button {
   width: 387px;
 }
+
+@media only screen and (max-width: 390px) {
+  .index-header {
+    padding-top: 67px;
+    padding-bottom: 117px;
+  }
+
+  .index-main {
+    padding-top: 471px;
+    background-image: url("../img/main-mobile.svg");
+  }
+
+  .main-actions__button {
+    width: 358px;
+  }
+}
