@@ -25,11 +25,11 @@
 }
 
 .form-element {
-  flex-basis: 100%;
   display: flex;
+  flex-basis: 100%;
   flex-direction: column;
   row-gap: 8px;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .form-element__label {
@@ -56,8 +56,17 @@
   border-color: rgba(100, 153, 255, 1);
 }
 
+.form-element__hint {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 21px;
+}
+
 .form-element__error-message {
   display: none;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 21px;
   color: var(--error-color);
 }
 

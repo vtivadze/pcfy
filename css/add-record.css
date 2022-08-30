@@ -11,10 +11,12 @@
 
 .record-steps__description {
   position: relative;
+  display: block;
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
   color: #232323;
+  text-align: center;
 }
 
 .record-steps__item--current .record-steps__description::after {
@@ -31,10 +33,17 @@
   border: 2px solid #000000;
 }
 
+.record-steps__number {
+  display: none;
+}
+
 .record-groups {
-  width: 1226px;
+  box-sizing: border-box;
+  max-width: 1226px;
   padding-top: 96px;
   padding-bottom: 44px;
+  padding-left: 16px;
+  padding-right: 16px;
   margin: 0 auto;
   background-color: #ffffff;
   border-radius: 18px;
@@ -47,12 +56,12 @@
 .record-groups__item {
   position: absolute;
   top: 3000px;
-  width: 878px;
-  margin: 0 auto;
 }
 
 .record-groups__item--current {
   position: static;
+  max-width: 878px;
+  margin: 0 auto;
 }
 
 .record-groups__employee.flex-container {
@@ -60,7 +69,7 @@
 }
 
 .record-groups__employee .flex-container__item--width--half {
-  flex-basis: 407px;
+  flex-basis: 46.35535307517084%;
 }
 
 .record-groups__employee .form-actions {
@@ -72,4 +81,76 @@
 .record-groups__employee .form-actions .button {
   padding-left: 45.5px;
   padding-right: 45.5px;
+}
+
+@media only screen and (max-width: 820px) {
+  .nav__link {
+    top: 34px;
+    left: 20px;
+  }
+
+  .record-steps__list  {
+    column-gap: 25px;
+  }
+}
+
+@media only screen and (max-width: 530px) {
+  .record-groups__employee .flex-container__item--width--half {
+    flex-basis: 100%;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .nav__link {
+    top: 34px;
+    left: 20px;
+    width: 9.21px;
+    height: 16px;
+    background-color: transparent;
+  }
+
+  .record-steps {
+    padding-top: 31px;
+    padding-bottom: 11px;
+  }
+
+  .record-steps__item {
+    display: none;
+  }
+
+  .record-steps__item--current {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .record-steps__description {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+  }
+
+  .record-steps__item--current .record-steps__description::after {
+    display: none;
+  }
+
+  .record-steps__item--current .record-steps__number {
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;;
+  }
+
+  .record-groups {
+    padding-top: 38px;
+    padding-bottom: 58px;
+  }
+
+  .record-groups__employee.flex-container {
+    row-gap: 26px;
+  }
+
+  .record-groups__employee .form-actions {
+    margin-top: 43px;
+  }
 }
