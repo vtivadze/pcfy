@@ -1,15 +1,15 @@
-.add-record-steps {
+.record-steps {
   padding-top: 91px;
   padding-bottom: 42px;
 }
 
-.add-record-steps__list {
+.record-steps__list {
   display: flex;
   column-gap: 66px;
   justify-content: center;
 }
 
-.add-record-steps__description {
+.record-steps__description {
   position: relative;
   font-size: 20px;
   font-weight: 700;
@@ -17,7 +17,7 @@
   color: #232323;
 }
 
-.add-record-steps__item--current .add-record-steps__description::after {
+.record-steps__item--current .record-steps__description::after {
   position: absolute;
   bottom: -15px;
   left: 50%;
@@ -29,4 +29,46 @@
   line-height: 0;
   display: block;
   border: 2px solid #000000;
+}
+
+.record-groups {
+  width: 1226px;
+  padding-top: 96px;
+  padding-bottom: 44px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 18px;
+}
+
+.record-groups__list {
+  position: relative;
+}
+
+.record-groups__item {
+  position: absolute;
+  top: 3000px;
+  width: 878px;
+  margin: 0 auto;
+}
+
+.record-groups__item--current {
+  position: static;
+}
+
+.record-groups__employee.flex-container {
+  row-gap: 52px;
+}
+
+.record-groups__employee .flex-container__item--width--half {
+  flex-basis: 407px;
+}
+
+.record-groups__employee .form-actions {
+  margin-top: 95px;
+  justify-content: flex-end;
+}
+
+.record-groups__employee .form-actions .button {
+  padding-left: 45.5px;
+  padding-right: 45.5px;
 }

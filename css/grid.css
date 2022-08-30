@@ -1,0 +1,13 @@
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.flex-container__item {
+  flex-basis: 100%;
+}
+
+.flex-container__item--width--half {
+  flex-basis: 50%;
+}

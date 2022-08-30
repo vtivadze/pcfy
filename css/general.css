@@ -19,38 +19,6 @@ body.inner {
   background-color: var(--inner-body-background-color);
 }
 
-.button {
-  display: block;
-  padding-top: 18px;
-  padding-bottom: 18px;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 24px;
-  color: #ffffff;
-  text-align: center;
-  background-color: #62a1eb;
-  border: none;
-  border-radius: 8px;
-}
-
-.button:hover {
-  background-color: #317ad0;
-}
-
-.button:active {
-  background-color: #1a5dab;
-}
-
-.nav__link {
-  position: absolute;
-  top: 53px;
-  left: 70px;
-  display: block;
-  width: 53px;
-  height: 53px;
-  background-color: #d9d9d9;
-  border-radius: 50%;
-  background-image: url("../img/icon-arrow-left.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+.form-actions {
+  display: flex;
 }
