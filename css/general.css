@@ -1,0 +1,31 @@
+@font-face {
+  font-family: helvetica;
+  src: url("../fonts/HelveticaNeue.ttf");
+}
+
+body {
+  font-family: helvetica, Arial, sans-serif;
+  background-color: var(--main-body-background-color);
+}
+
+.button {
+  display: block;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #ffffff;
+  text-align: center;
+  background-color: #62a1eb;
+  border: none;
+  border-radius: 8px;
+}
+
+.button:hover {
+  background-color: #317ad0;
+}
+
+.button:active {
+  background-color: #1a5dab;
+}

@@ -1,0 +1,27 @@
+.index-header {
+  padding-top: 79px;
+  padding-bottom: 85px;
+}
+
+.index-header__company-title-container {
+  width: 112px;
+  height: 18px;
+}
+
+.index-main {
+  padding-top: 605px;
+  background-image: url("../img/main-desctop.svg");
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+.main-actions__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 26px;
+}
+
+.main-actions__button {
+  width: 387px;
+}
