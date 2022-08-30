@@ -19,6 +19,16 @@ body.inner {
   background-color: var(--inner-body-background-color);
 }
 
-.form-actions {
-  display: flex;
+.nav__link {
+  position: absolute;
+  top: 53px;
+  left: 70px;
+  display: block;
+  width: 53px;
+  height: 53px;
+  background-color: #d9d9d9;
+  border-radius: 50%;
+  background-image: url("../img/icon-arrow-left.svg");
+  background-repeat: no-repeat;
+  background-position: center;
 }

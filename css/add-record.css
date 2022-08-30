@@ -65,6 +65,7 @@
 
 .record-groups__employee .form-actions {
   margin-top: 95px;
+  display: flex;
   justify-content: flex-end;
 }
 

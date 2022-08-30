@@ -34,19 +34,19 @@
           <ul class="record-groups__list">
             <li class="record-groups__item record-groups__item--current">
               <section class="record-groups__employee flex-container">
-                <div class="form-element flex-container__item flex-container__item--width--half">
+                <div class="form-element form-element--error flex-container__item flex-container__item--width--half">
                   <label class="form-element__label" for="first_name">სახელი</label>
                   <input class="form-element__input" type="text" id="first_name" name="first_name" placeholder="გრიშა">
                   <span class="form-element__hint">მინიმუმ 2 სიმბოლო, ქართული ასოები</span>
-                  <span class="form-element__error">შეცდომა</span>
+                  <span class="form-element__error-message">შეცდომა</span>
                 </div>
                 <div class="form-element flex-container__item flex-container__item--width--half">
                   <label class="form-element__label" for="last_name">გვარი</label>
                   <input class="form-element__input" type="text" id="last_name" name="last_name" placeholder="ბაგრატიონი">
                   <span class="form-element__hint">მინიმუმ 2 სიმბოლო, ქართული ასოები</span>
-                  <span class="form-element__error"></span>
+                  <span class="form-element__error-message"></span>
                 </div>
-                <div class="form-element">
+                <div class="form-element form-element--error">
                   <div class="custom-select">
                     <input class="custom-select__input" type="text" name="team">
                     <div class="custom-select__title">თიმი</div>
@@ -75,13 +75,13 @@
                   <label class="form-element__label" for="email">მეილი</label>
                   <input class="form-element__input" type="text" id="email" name="email" placeholder="grish666@redberry.ge">
                   <span class="form-element__hint">უნდა მთავრდებოდეს @redberry.ge-ით</span>
-                  <span class="form-element__error"></span>
+                  <span class="form-element__error-message"></span>
                 </div>
                 <div class="form-element flex-container__item">
                   <label class="form-element__label" for="mobile">ტელეფონის ნომერი</label>
                   <input class="form-element__input" type="text" id="mobile" name="mobile" placeholder="+995 598 00 07 01">
                   <span class="form-element__hint">უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს</span>
-                  <span class="form-element__error"></span>
+                  <span class="form-element__error-message"></span>
                 </div>
                 <div class="form-actions flex-container__item">
                   <button class="button">შემდეგი</button>
