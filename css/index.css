@@ -1,14 +1,14 @@
-.index-header {
+.landing-header {
   padding-top: 79px;
   padding-bottom: 85px;
 }
 
-.index-header__company-title-container {
+.landing-header__company-title-container {
   width: 112px;
   height: 18px;
 }
 
-.index-main {
+.landing-main {
   padding-top: 605px;
   background-image: url("../img/main-desctop.svg");
   background-repeat: no-repeat;
@@ -27,12 +27,12 @@
 }
 
 @media only screen and (max-width: 390px) {
-  .index-header {
+  .landing-header {
     padding-top: 67px;
     padding-bottom: 117px;
   }
 
-  .index-main {
+  .landing-main {
     padding-top: 471px;
     background-image: url("../img/main-mobile.svg");
   }
