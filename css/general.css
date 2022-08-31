@@ -32,3 +32,9 @@ body.inner {
   background-repeat: no-repeat;
   background-position: center;
 }
+
+@media only screen and (max-width: 390px) {
+  .inner-footer {
+    display: none;
+  }
+}

@@ -19,3 +19,12 @@
 .flex-container__item--width--third {
   flex-basis: 50%;
 }
+
+.flex-container__divider {
+  margin-top: 52px;
+  margin-bottom: 50px;
+  height: 1px;
+  font-size: 0;
+  line-height: 0;
+  background-color: #c7c7c7;
+}
