@@ -8,6 +8,14 @@
   flex-basis: 100%;
 }
 
+.flex-container__item.flex-container__item--content--center {
+  justify-content: center;
+}
+
 .flex-container__item--width--half {
+  flex-basis: 50%;
+}
+
+.flex-container__item--width--third {
   flex-basis: 50%;
 }
