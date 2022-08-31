@@ -199,7 +199,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  row-gap: 65px;
   width: 878px;
   height: 423px;
   background: #f7f7f7;
@@ -207,12 +206,38 @@
   border-radius: 18px;
 }
 
+.form-element--error .custom-photo-upload {
+  background-color: #fff1f1;
+  border-color: var(--error-color);
+}
+
 .custom-photo-upload__label {
+  margin-bottom: 65px;
   font-size: 20px;
   font-weight: 500;
   line-height: 38px;
   color: #4386a9;
   text-align: center;
+}
+
+.form-element--error .custom-photo-upload__label {
+  position: relative;
+  color: var(--error-color);
+}
+
+.form-element--error .custom-photo-upload__label::after {
+  position: absolute;
+  top: -53px;
+  left: 50%;
+  transform: translateX(-50%);
+  content: "";
+  display: block;
+  width: 38px;
+  height: 34px;
+  background-image: url("../img/icon-error.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
 .custom-photo-upload__input {
