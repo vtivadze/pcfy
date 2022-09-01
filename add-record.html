@@ -34,7 +34,7 @@
       <section class="record-groups">
         <form class="form record-form" action="">
           <ul class="record-groups__list">
-            <li class="record-groups__item record-groups__item--hidden">
+            <li class="record-groups__item">
               <section class="record-groups__employee flex-container">
                 <div class="form-element form-element--error flex-container__item flex-container__item--width--half">
                   <label class="form-element__label" for="first_name">სახელი</label>
@@ -90,10 +90,10 @@
                 </div>
               </section>
             </li>
-            <li class="record-groups__item">
+            <li class="record-groups__item record-groups__item--hidden">
               <section class="record-groups__laptop flex-container">
                 <div class="flex-container flex-container__item">
-                  <div class="form-element form-element--error flex-container__item">
+                  <div class="form-element form-element--error flex-container__item flex-container__align--center">
                     <div class="custom-photo-upload">
                       <label class="custom-photo-upload__label" for="photo">
                         <span class="custom-photo-upload__desctop-label">ჩააგდე ან ატვირთე<br>ლეპტოპის ფოტო</span>
@@ -109,7 +109,7 @@
                     <span class="form-element__hint">ლათინური ასოები, ციფრები, !@#$%^&*()_+= </span>
                     <span class="form-element__error-message"></span>
                   </div>
-                  <div class="form-element flex-container__item flex-container__item--content--center flex-container__item--width--half">
+                  <div class="form-element flex-container__item flex-container__align--center flex-container__item--width--half">
                     <div class="custom-select">
                       <input class="custom-select__input" type="text" name="laptop_brand">
                       <div class="custom-select__title">ლეპტოპის ბრენდი</div>
@@ -124,7 +124,7 @@
                 </div>
                 <div class="flex-container__divider flex-container__item"></div>
                 <div class="flex-container flex-container__item">
-                  <div class="form-element flex-container__item flex-container__item--content--center flex-container__item--width--third">
+                  <div class="form-element flex-container__item flex-container__align--center flex-container__item--width--third">
                     <div class="custom-select">
                       <input class="custom-select__input" type="text" name="cpu">
                       <div class="custom-select__title">CPU</div>
@@ -194,10 +194,10 @@
                       </label>
                     </fieldset>
                   </div>
-                </div>
-                <div class="form-actions flex-container__item">
-                  <button class="button-link form-actions__backward">უკან</button>
-                  <button class="button button--type--save form-actions__save">დამახსოვრება</button>
+                  <div class="form-actions flex-container__item">
+                    <button class="button-link form-actions__backward">უკან</button>
+                    <button class="button button--type--save form-actions__save">დამახსოვრება</button>
+                  </div>
                 </div>
               </section>
             </li>

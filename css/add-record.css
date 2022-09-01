@@ -39,9 +39,9 @@
 
 .record-groups {
   box-sizing: border-box;
-  max-width: 1226px;
   padding-left: 16px;
   padding-right: 16px;
+  max-width: 1226px;
   margin: 0 auto;
   background-color: #ffffff;
   border-radius: 18px;
@@ -65,6 +65,11 @@
 .record-groups__item--hidden {
   position: absolute;
   top: -3000px;
+}
+
+.record-groups__item--hidden,
+.record-groups__item--hidden * {
+  width: 0;
 }
 
 /* employee */
@@ -95,7 +100,7 @@
 
 .record-groups__laptop > .flex-container {
   row-gap: 50px;
-  background-color: red;
+  background-color: #ffffff;
 }
 
 .record-groups__laptop .flex-container__item--width--half {
@@ -130,6 +135,18 @@
 
   .record-steps__list  {
     column-gap: 25px;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  .record-groups__laptop .flex-container__item--width--third {
+    flex-basis: 100%;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .record-groups__laptop .flex-container__item--width--half {
+    flex-basis: 100%;
   }
 }
 
@@ -184,6 +201,12 @@
     line-height: 17px;;
   }
 
+  .record-groups {
+    padding-left: 0;
+    padding-right: 0;
+    background-color: transparent;
+  }
+
   .record-groups__employee {
     padding-top: 38px;
     padding-bottom: 58px;
@@ -200,12 +223,35 @@
 
   /* laptop */
   .record-groups__laptop {
-    padding-top: 29px;
-    padding-bottom: 48px;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   .record-groups__laptop.flex-container {
-    row-gap: 35px;
+    row-gap: 10px;
+  }
+
+  .record-groups__laptop > .flex-container {
+    border-radius: 12px;
+  }
+
+  .record-groups__laptop > .flex-container {
+    padding-top: 33px;
+    padding-bottom: 33px;
+  }
+
+  .record-groups__laptop > .flex-container {
+    row-gap: 26px;
+  }
+
+  .record-groups__laptop > .flex-container:first-child {
+    padding-top: 29px;
+  }
+
+  .record-groups__laptop > .flex-container:last-child {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding-bottom: 48px;
   }
 
   .flex-container__divider {
@@ -268,6 +314,9 @@
   }
 
   .button--type--save {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
     padding-left: 14.5px;
     padding-right: 14.5px;
   }

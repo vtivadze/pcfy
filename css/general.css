@@ -7,8 +7,6 @@ body {
   box-sizing: border-box;
   max-width: var(--body-max-width);
   min-width: var(--body-min-width);
-  padding-left: 16px;
-  padding-right: 16px;
   font-family: helvetica, Arial, sans-serif;
   background-color: var(--main-body-background-color);
 }
