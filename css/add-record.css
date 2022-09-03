@@ -98,6 +98,10 @@
   padding-bottom: 45px;
 }
 
+.record-groups__laptop.flex-container {
+  row-gap: 102px;
+}
+
 .record-groups__laptop > .flex-container {
   row-gap: 50px;
   background-color: #ffffff;
@@ -109,6 +113,22 @@
 
 .record-groups__laptop .flex-container__item--width--third {
   flex-basis: 31.43507972665148%;
+}
+
+.record-groups__laptop > .flex-container:not(:last-child) {
+  position: relative;
+}
+
+.record-groups__laptop > .flex-container:not(:last-child)::after {
+  position: absolute;
+  bottom: -52px;
+  display: block;
+  width: 100%;
+  height: 0;
+  content: "";
+  font-size: 0;
+  line-height: 0;
+  border-bottom: 1px solid #c7c7c7;
 }
 
 .record-groups__laptop .form-actions {
@@ -157,10 +177,6 @@
 }
 
 @media only screen and (max-width: 390px) {
-  .flex-container__divider {
-    border-bottom: 1px solid #c7c7c7;
-  }
-
   .nav__link {
     top: 34px;
     left: 20px;
@@ -254,7 +270,7 @@
     padding-bottom: 48px;
   }
 
-  .flex-container__divider {
+  .record-groups__laptop > .flex-container:not(:last-child)::after {
     display: none;
   }
 
