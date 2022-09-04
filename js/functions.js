@@ -83,7 +83,7 @@ function populateCustomSelectElement(customSelectElement) {
   if (itemName === 'positions') {
     return;
   }
-  
+
   const data = getDataFromLocalStorage(itemName);
   const customSelectOptions = createCustomSelectOptions(data);
   customSelectElement.appendChild(customSelectOptions);
@@ -98,8 +98,25 @@ function createCustomSelectOptions(data) {
     li.classList.add('custom-select__options-list-item');
     li.innerText = item.name;
     li.setAttribute('data-option-id', item.id);
+    li.addEventListener('click', handleCustomSelectItemClick);
     ul.appendChild(li);
   });
 
   return ul;
+}
+
+function handleCustomSelectItemClick(event) {
+  const element = event.currentTarget;
+  const itemName = element.innerText;
+  const itemId = element.dataset.itemId;
+
+  const customSelectTitle = element
+    .closest('.custom-select')
+    .querySelector('.custom-select__title');
+  customSelectTitle.innerText = itemName;
+
+  const customSelectInput = element
+    .closest('.custom-select')
+    .querySelector('.custom-select__input');
+  customSelectInput.value = itemId;
 }
