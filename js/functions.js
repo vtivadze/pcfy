@@ -78,13 +78,17 @@ function formateLocalStorageItemName(itemName) {
   return LOCAL_STORAGE_PREFIX + '_' + itemName;
 }
 
-function populateCustomSelectElement(customSelectElement) {
+function populateCustomSelectElement(customSelectElement, teamId = null) {
   const itemName = getCustomSelectElementHandlerName(customSelectElement);
-  if (itemName === 'positions') {
+  if (itemName === 'positions' && teamId === null) {
     return;
   }
 
-  const data = getDataFromLocalStorage(itemName);
+  let data = getDataFromLocalStorage(itemName);
+  if (teamId !== null) {
+    data = data.filter((item) => item.team_id === +teamId);
+  }
+
   const customSelectOptions = createCustomSelectOptions(data);
   customSelectElement.appendChild(customSelectOptions);
 }
@@ -108,7 +112,7 @@ function createCustomSelectOptions(data) {
 function handleCustomSelectItemClick(event) {
   const element = event.currentTarget;
   const itemName = element.innerText;
-  const itemId = element.dataset.itemId;
+  const itemId = element.dataset.optionId;
 
   const customSelectTitle = element
     .closest('.custom-select')
@@ -119,4 +123,24 @@ function handleCustomSelectItemClick(event) {
     .closest('.custom-select')
     .querySelector('.custom-select__input');
   customSelectInput.value = itemId;
+
+  if (customSelectInput.name === 'team_id') {
+    populatePositionCustomSelect();
+  }
+}
+
+function emptyCustomSelectElement(customSelect) {
+  const optionsList = customSelect.querySelector('.custom-select__options-list');
+  if (optionsList) {
+    while(optionsList.firstChild) {
+      optionsList.firstChild.remove();
+    };
+  }
+}
+
+function populatePositionCustomSelect() {
+  const customSelect = document.querySelector('[data-handler-name="positions"]');
+  emptyCustomSelectElement(customSelect);
+  populateCustomSelectElement(customSelect, itemId);
+  customSelect.querySelector('.custom-select__title').innerText = 'პოზიცია';
 }
