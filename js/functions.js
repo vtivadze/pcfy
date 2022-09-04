@@ -17,6 +17,25 @@ function toggleCustomSelectOptions(customSelectElement) {
   customSelectElement.classList.toggle('custom-select--opened');
 }
 
+async function saveCustomSelectOptionsDataInLocalStorage(customSelectElement) {
+  const handler = customSelectElement.dataset.handlerName;
+
+  if (isSavedCustomSelectOptionsData(handler)) {
+    return;
+  }
+
+  let data = null;
+  try {
+    data = await loadCustomSelectOptions(handler);
+  } catch(error) {
+    setCustomSelectError(customSelectElement);
+  }
+
+  if (data) {
+    saveDataIntoLocalStorage(JSON.stringify(data.data), handler);
+  }
+}
+
 async function loadCustomSelectOptions(handler) {
   const url = API_URL + handler;
 
@@ -36,5 +55,19 @@ function setCustomSelectError(customSelectElement) {
 }
 
 function saveDataIntoLocalStorage(data, itemName) {
-  localStorage.setItem(LOCAL_STORAGE_PREFIX + '_' + itemName, data);
+  itemName = formateLocalStorageItemName(itemName);
+  localStorage.setItem(itemName, data);
+}
+
+function isSavedCustomSelectOptionsData(itemName) {
+  itemName = formateLocalStorageItemName(itemName);
+  return localStorage.getItem(itemName);
+}
+
+function formateLocalStorageItemName(itemName) {
+  return LOCAL_STORAGE_PREFIX + '_' + itemName;
+}
+
+function test(data) {
+  console.log(data);
 }

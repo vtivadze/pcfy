@@ -11,20 +11,8 @@ window.addEventListener('load', () => {
     toggleDescription();
   });
 
-  customSelectElements.forEach(async(customSelectElement) => {
-    const handler = customSelectElement.dataset.handlerName;
-
-    let data = null;
-    try {
-      data = await loadCustomSelectOptions(handler);
-    } catch(error) {
-      setCustomSelectError(customSelectElement);
-    }
-
-    console.log(data);
-    if (data) {
-      saveDataIntoLocalStorage(JSON.stringify(data.data), handler);
-    }
+  customSelectElements.forEach((customSelectElement) => {
+    saveCustomSelectOptionsDataInLocalStorage(customSelectElement);
   });
 
   for (let item of customSelectElements) {
@@ -32,7 +20,7 @@ window.addEventListener('load', () => {
       const customSelect = event.currentTarget;
       toggleCustomSelectOptions(customSelect);
     });
-  };
+  }
 
   
 });
