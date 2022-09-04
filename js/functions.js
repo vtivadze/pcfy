@@ -14,6 +14,10 @@ function toggleDescription() {
 }
 
 function toggleCustomSelectOptions(customSelectElement) {
+  const customSelectOptionsList = customSelectElement.querySelector('.custom-select__options-list');
+  if (!customSelectOptionsList) {
+    return;
+  }
   customSelectElement.classList.toggle('custom-select--opened');
 }
 
@@ -125,7 +129,7 @@ function handleCustomSelectItemClick(event) {
   customSelectInput.value = itemId;
 
   if (customSelectInput.name === 'team_id') {
-    populatePositionCustomSelect();
+    populatePositionCustomSelect(itemId);
   }
 }
 
@@ -138,7 +142,7 @@ function emptyCustomSelectElement(customSelect) {
   }
 }
 
-function populatePositionCustomSelect() {
+function populatePositionCustomSelect(itemId) {
   const customSelect = document.querySelector('[data-handler-name="positions"]');
   emptyCustomSelectElement(customSelect);
   populateCustomSelectElement(customSelect, itemId);
