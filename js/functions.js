@@ -13,13 +13,12 @@ function toggleDescription() {
   }
 }
 
-function toggleCustomSelectOptions(customSelect) {
-  customSelect.classList.toggle('custom-select--opened');
+function toggleCustomSelectOptions(customSelectElement) {
+  customSelectElement.classList.toggle('custom-select--opened');
 }
 
-async function loadCustomSelectOptions(customSelect) {
-  const handlerName = customSelect.dataset.handlerName;
-  const url = API_URL + handlerName;
+async function loadCustomSelectOptions(handler) {
+  const url = API_URL + handler;
 
   let data = null;
   try {
@@ -31,7 +30,11 @@ async function loadCustomSelectOptions(customSelect) {
   return data;
 }
 
-function setCustomSelectError(customSelect) {
-  const parent = customSelect.parentElement;
+function setCustomSelectError(customSelectElement) {
+  const parent = customSelectElement.parentElement;
   parent.classList.add('form-element--error');
+}
+
+function saveDataIntoLocalStorage(data, itemName) {
+  localStorage.setItem(LOCAL_STORAGE_PREFIX + '_' + itemName, data);
 }

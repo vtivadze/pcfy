@@ -11,14 +11,20 @@ window.addEventListener('load', () => {
     toggleDescription();
   });
 
-  customSelectElements.forEach(async(item) => {
+  customSelectElements.forEach(async(customSelectElement) => {
+    const handler = customSelectElement.dataset.handlerName;
+
     let data = null;
     try {
-      data = await loadCustomSelectOptions(item);
+      data = await loadCustomSelectOptions(handler);
     } catch(error) {
-      setCustomSelectError(item);
+      setCustomSelectError(customSelectElement);
     }
+
     console.log(data);
+    if (data) {
+      saveDataIntoLocalStorage(JSON.stringify(data.data), handler);
+    }
   });
 
   for (let item of customSelectElements) {
