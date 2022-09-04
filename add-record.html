@@ -34,7 +34,7 @@
       <section class="record-groups">
         <form class="form record-form" action="">
           <ul class="record-groups__list">
-            <li class="record-groups__item record-groups__item--hidden">
+            <li id="employee-data" class="record-groups__item record-groups__item--hidden">
               <section class="record-groups__employee flex-container">
                 <div class="form-element form-element--error flex-container__item flex-container__item--width--half">
                   <label class="form-element__label" for="first_name">სახელი</label>
@@ -90,7 +90,7 @@
                 </div>
               </section>
             </li>
-            <li class="record-groups__item">
+            <li id="laptop-data" class="record-groups__item">
               <section class="record-groups__laptop flex-container">
                 <div class="flex-container flex-container__item">
                   <div class="form-element form-element--error flex-container__item flex-container__align--center">
@@ -193,8 +193,8 @@
                     </fieldset>
                   </div>
                   <div class="form-actions flex-container__item">
-                    <button class="button-link form-actions__backward">უკან</button>
-                    <button class="button button--type--save form-actions__save">დამახსოვრება</button>
+                    <button id="backward-button" class="button-link form-actions__backward" type="button">უკან</button>
+                    <button id="save-button" class="button button--type--save form-actions__save" type="button">დამახსოვრება</button>
                   </div>
                 </div>
               </section>
@@ -220,5 +220,6 @@
       </div>
     </div>
   </div>
+  <script src="./js/script.js"></script>
 </body>
 </html>
