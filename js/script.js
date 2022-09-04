@@ -11,8 +11,9 @@ window.addEventListener('load', () => {
     toggleDescription();
   });
 
-  customSelectElements.forEach((customSelectElement) => {
-    saveCustomSelectOptionsDataInLocalStorage(customSelectElement);
+  customSelectElements.forEach(async (customSelectElement) => {
+    await saveCustomSelectOptionsDataInLocalStorage(customSelectElement);
+    populateCustomSelectElement(customSelectElement);
   });
 
   for (let item of customSelectElements) {
@@ -21,6 +22,4 @@ window.addEventListener('load', () => {
       toggleCustomSelectOptions(customSelect);
     });
   }
-
-  
 });

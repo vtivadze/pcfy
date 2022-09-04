@@ -17,22 +17,26 @@ function toggleCustomSelectOptions(customSelectElement) {
   customSelectElement.classList.toggle('custom-select--opened');
 }
 
-async function saveCustomSelectOptionsDataInLocalStorage(customSelectElement) {
-  const handler = customSelectElement.dataset.handlerName;
+function getCustomSelectElementHandlerName(customSelectElement) {
+  return customSelectElement.dataset.handlerName;
+}
 
-  if (isSavedCustomSelectOptionsData(handler)) {
+async function saveCustomSelectOptionsDataInLocalStorage(customSelectElement) {
+  const itemName = getCustomSelectElementHandlerName(customSelectElement);
+
+  if (isSavedCustomSelectOptionsData(itemName)) {
     return;
   }
 
   let data = null;
   try {
-    data = await loadCustomSelectOptions(handler);
+    data = await loadCustomSelectOptions(itemName);
   } catch(error) {
     setCustomSelectError(customSelectElement);
   }
 
   if (data) {
-    saveDataIntoLocalStorage(JSON.stringify(data.data), handler);
+    saveDataIntoLocalStorage(JSON.stringify(data.data), itemName);
   }
 }
 
@@ -64,10 +68,38 @@ function isSavedCustomSelectOptionsData(itemName) {
   return localStorage.getItem(itemName);
 }
 
+function getDataFromLocalStorage(itemName) {
+  itemName = formateLocalStorageItemName(itemName);
+  data = localStorage.getItem(itemName);
+  return JSON.parse(data);
+}
+
 function formateLocalStorageItemName(itemName) {
   return LOCAL_STORAGE_PREFIX + '_' + itemName;
 }
 
-function test(data) {
-  console.log(data);
+function populateCustomSelectElement(customSelectElement) {
+  const itemName = getCustomSelectElementHandlerName(customSelectElement);
+  if (itemName === 'positions') {
+    return;
+  }
+  
+  const data = getDataFromLocalStorage(itemName);
+  const customSelectOptions = createCustomSelectOptions(data);
+  customSelectElement.appendChild(customSelectOptions);
+}
+
+function createCustomSelectOptions(data) {
+  const ul = document.createElement('ul');
+  ul.classList.add('custom-select__options-list');
+
+  data.forEach((item) => {
+    const li = document.createElement('li');
+    li.classList.add('custom-select__options-list-item');
+    li.innerText = item.name;
+    li.setAttribute('data-option-id', item.id);
+    ul.appendChild(li);
+  });
+
+  return ul;
 }
