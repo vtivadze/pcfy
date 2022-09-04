@@ -49,7 +49,7 @@
                   <span class="form-element__error-message"></span>
                 </div>
                 <div class="form-element flex-container__item">
-                  <div class="custom-select">
+                  <div class="custom-select" data-handler-name="tea">
                     <input class="custom-select__input" type="text" name="team">
                     <div class="custom-select__title">თიმი</div>
                     <ul class="custom-select__options-list">
@@ -62,7 +62,7 @@
                   </div>
                 </div>
                 <div class="form-element flex-container__item">
-                  <div class="custom-select">
+                  <div class="custom-select" data-handler-name="positions">
                     <input class="custom-select__input" type="text" name="position">
                     <div class="custom-select__title">პოზიცია</div>
                     <ul class="custom-select__options-list">
@@ -110,7 +110,7 @@
                     <span class="form-element__error-message"></span>
                   </div>
                   <div class="form-element flex-container__item flex-container__align--center flex-container__item--width--half">
-                    <div class="custom-select">
+                    <div class="custom-select" data-handler-name="brands">
                       <input class="custom-select__input" type="text" name="laptop_brand">
                       <div class="custom-select__title">ლეპტოპის ბრენდი</div>
                       <ul class="custom-select__options-list">
@@ -124,7 +124,7 @@
                 </div>
                 <div class="flex-container flex-container__item">
                   <div class="form-element flex-container__item flex-container__align--center flex-container__item--width--third">
-                    <div class="custom-select">
+                    <div class="custom-select" data-handler-name="cpus">
                       <input class="custom-select__input" type="text" name="cpu">
                       <div class="custom-select__title">CPU</div>
                       <ul class="custom-select__options-list">
@@ -220,6 +220,7 @@
       </div>
     </div>
   </div>
+  <script src="./js/constants.js"></script>
   <script src="./js/elements.js"></script>
   <script src="./js/util.js"></script>
   <script src="./js/functions.js"></script>
