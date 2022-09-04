@@ -179,6 +179,7 @@
 
 .custom-select--opened .custom-select__options-list {
   display: block;
+  z-index: 100;
 }
 
 .custom-select__options-list-item {

@@ -10,4 +10,13 @@ window.addEventListener('load', () => {
     showStepData(employeeData);
     toggleDescription();
   });
+
+  for (let item of customSelectElements) {
+    item.addEventListener('click', (event) => {
+      const customSelect = event.currentTarget;
+      toggleCustomSelectOptions(customSelect);
+    });
+  };
+
+  
 });
