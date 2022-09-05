@@ -4,7 +4,7 @@ const API_URL = 'https://pcfy.redberryinternship.ge/api/';
 const LOCAL_STORAGE_PREFIX = 'PCfy';
 const LOCAL_STORAGE_FORM_DATA_PREFIX = 'form-';
 
-const GEORGINA_ALPHABET = 'აბგდევზთიკლმნოპჟრსტუფქღყშჩცძწჭხჯჰ';
+const PATTERN_GEORGIAN_ALPHABET = /^[აბგდევზთიკლმნოპჟრსტუფქღყშჩცძწჭხჯჰ]+$/;
 const PATTERN_EMAIL = /^[a-zA-Z0-9]+@redberry.ge$/;
 const PATTERN_PHONE_NUMBER = /^\+995\d{9}$/;
 const PATTERN_LAPTOP_NAME = /^[a-zA-Z0-9!@#$%^&*()_+=]+$/;

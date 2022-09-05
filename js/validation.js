@@ -3,13 +3,13 @@ const validationRules = {
     name: {
       required,
       min: 2,
-      allowedSymbols: GEORGINA_ALPHABET,
+      pattern: GEORGINA_ALPHABET,
     },
   
     surname: {
       required,
       min: 2,
-      allowedSymbols: GEORGINA_ALPHABET,
+      pattern: GEORGINA_ALPHABET,
     },
   
     team_id: {
@@ -77,5 +77,33 @@ const validationRules = {
       required,
       pattern: PATTERN_ONLY_DIGITS,
     }
+  }
+};
+
+const validate = {
+  required(item) {
+    if (typeof item !== 'string' || typeof item !== 'number') {
+      return false;
+    }
+
+    if (item == null) {
+      return false;
+    }
+
+    item = String(item);
+
+    if (item.length === 0) {
+      return false;
+    }
+
+    return true;
+  },
+
+  pattern(item, pattern) {
+    return item.match(pattern);
+  },
+
+  min(item, min) {
+    return item.length > min;
   }
 };
