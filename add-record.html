@@ -37,38 +37,38 @@
             <li id="employee-data" class="record-groups__item">
               <section class="record-groups__employee flex-container">
                 <div class="form-element form-element--error flex-container__item flex-container__item--width--half">
-                  <label class="form-element__label" for="first_name">სახელი</label>
-                  <input class="form-element__input" type="text" id="first_name" name="first_name" placeholder="გრიშა">
+                  <label class="form-element__label" for="name">სახელი</label>
+                  <input class="form-element__input" type="text" id="name" name="name" placeholder="გრიშა" required>
                   <span class="form-element__hint">მინიმუმ 2 სიმბოლო, ქართული ასოები</span>
                   <span class="form-element__error-message">შეცდომა</span>
                 </div>
                 <div class="form-element flex-container__item flex-container__item--width--half">
-                  <label class="form-element__label" for="last_name">გვარი</label>
-                  <input class="form-element__input" type="text" id="last_name" name="last_name" placeholder="ბაგრატიონი">
+                  <label class="form-element__label" for="surname">გვარი</label>
+                  <input class="form-element__input" type="text" id="surname" name="surname" placeholder="ბაგრატიონი" required>
                   <span class="form-element__hint">მინიმუმ 2 სიმბოლო, ქართული ასოები</span>
                   <span class="form-element__error-message"></span>
                 </div>
                 <div class="form-element flex-container__item">
                   <div class="custom-select" data-handler-name="teams">
-                    <input class="custom-select__input" type="text" name="team_id">
+                    <input class="custom-select__input" type="number" name="team_id" required>
                     <div class="custom-select__title">თიმი</div>
                   </div>
                 </div>
                 <div class="form-element flex-container__item">
                   <div class="custom-select" data-handler-name="positions">
-                    <input class="custom-select__input" type="text" name="position_id">
+                    <input class="custom-select__input" type="number" name="position_id" required>
                     <div class="custom-select__title">პოზიცია</div>
                   </div>
                 </div>
                 <div class="form-element flex-container__item">
                   <label class="form-element__label" for="email">მეილი</label>
-                  <input class="form-element__input" type="text" id="email" name="email" placeholder="grish666@redberry.ge">
+                  <input class="form-element__input" type="text" id="email" name="email" placeholder="grish666@redberry.ge" required>
                   <span class="form-element__hint">უნდა მთავრდებოდეს @redberry.ge-ით</span>
                   <span class="form-element__error-message"></span>
                 </div>
                 <div class="form-element flex-container__item">
-                  <label class="form-element__label" for="mobile">ტელეფონის ნომერი</label>
-                  <input class="form-element__input" type="text" id="mobile" name="mobile" placeholder="+995 598 00 07 01">
+                  <label class="form-element__label" for="phone_number">ტელეფონის ნომერი</label>
+                  <input class="form-element__input" type="text" id="phone_number" name="phone_number" placeholder="+995 598 00 07 01" required>
                   <span class="form-element__hint">უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს</span>
                   <span class="form-element__error-message"></span>
                 </div>
@@ -86,19 +86,19 @@
                         <span class="custom-photo-upload__desctop-label">ჩააგდე ან ატვირთე<br>ლეპტოპის ფოტო</span>
                         <span class="custom-photo-upload__mobile-label">ლეოპტოპის ფოტოს<br>ატვირთვა</span>
                       </label>
-                      <input class="custom-photo-upload__input" type="file" name="photo">
+                      <input class="custom-photo-upload__input" type="file" name="laptop_image" required>
                       <button class="button custom-photo-upload__button">ატვირთე</button>
                     </div>
                   </div>
                   <div class="form-element flex-container__item flex-container__item--width--half">
                     <label class="form-element__label" for="laptop_name">ლეპტოპის სახელი</label>
-                    <input class="form-element__input" type="text" id="laptop_name" name="laptop_name" placeholder="HP">
+                    <input class="form-element__input" type="text" id="laptop_name" name="laptop_name" placeholder="HP" required>
                     <span class="form-element__hint">ლათინური ასოები, ციფრები, !@#$%^&*()_+= </span>
                     <span class="form-element__error-message"></span>
                   </div>
                   <div class="form-element flex-container__item flex-container__align--center flex-container__item--width--half">
                     <div class="custom-select" data-handler-name="brands">
-                      <input class="custom-select__input" type="text" name="laptop_brand">
+                      <input class="custom-select__input" type="text" name="laptop_brand_id" required>
                       <div class="custom-select__title">ლეპტოპის ბრენდი</div>
                     </div>
                   </div>
@@ -106,25 +106,25 @@
                 <div class="flex-container flex-container__item">
                   <div class="form-element flex-container__item flex-container__align--center flex-container__item--width--third">
                     <div class="custom-select" data-handler-name="cpus">
-                      <input class="custom-select__input" type="text" name="cpu">
+                      <input class="custom-select__input" type="text" name="laptop_cpu" required>
                       <div class="custom-select__title">CPU</div>
                     </div>
                   </div>
                   <div class="form-element flex-container__item flex-container__item--width--third">
-                    <label class="form-element__label" for="cpu_core">CPU-ს ბირთვი</label>
-                    <input class="form-element__input" type="text" id="cpu_core" name="cpu_core" placeholder="14">
+                    <label class="form-element__label" for="laptop_cpu_cores">CPU-ს ბირთვი</label>
+                    <input class="form-element__input" type="text" id="laptop_cpu_cores" name="laptop_cpu_cores" placeholder="14" required>
                     <span class="form-element__hint">მხოლოდ ციფრები</span>
                     <span class="form-element__error-message"></span>
                   </div>
                   <div class="form-element flex-container__item flex-container__item--width--third">
-                    <label class="form-element__label" for="cpu_stream">CPU-ს ნაკადი</label>
-                    <input class="form-element__input" type="text" id="cpu_stream" name="cpu_stream" placeholder="365">
+                    <label class="form-element__label" for="laptop_cpu_treads">CPU-ს ნაკადი</label>
+                    <input class="form-element__input" type="text" id="laptop_cpu_treads" name="laptop_cpu_treads" placeholder="365" required>
                     <span class="form-element__hint">მხოლოდ ციფრები</span>
                     <span class="form-element__error-message"></span>
                   </div>
                   <div class="form-element flex-container__item flex-container__item--width--half">
-                    <label class="form-element__label" for="ram">ლეპტოპის RAM (GB)</label>
-                    <input class="form-element__input" type="text" id="ram" name="ram" placeholder="16">
+                    <label class="form-element__label" for="laptop_ram">ლეპტოპის RAM (GB)</label>
+                    <input class="form-element__input" type="text" id="laptop_ram" name="laptop_ram" placeholder="16" required>
                     <span class="form-element__hint">მხოლოდ ციფრები</span>
                     <span class="form-element__error-message"></span>
                   </div>
@@ -132,11 +132,11 @@
                     <fieldset class="form-element__fieldset">
                       <legend class="form-element__fieldset-legend">მეხსიერების ტიპი</legend>
                       <label class="custom-radio" for="SSD">SSD
-                        <input class="custom-radio__input" type="radio" id="SSD" name="memory_type" value="SSD">
+                        <input class="custom-radio__input" type="radio" id="SSD" name="laptop_hard_drive_type" value="SSD" required>
                         <span class="custom-radio__checkmark"></span>
                       </label>
                       <label class="custom-radio" for="HDD">HDD
-                        <input class="custom-radio__input" type="radio" id="HDD" name="memory_type" value="HDD">
+                        <input class="custom-radio__input" type="radio" id="HDD" name="laptop_hard_drive_type" value="HDD">
                         <span class="custom-radio__checkmark"></span>
                       </label>
                     </fieldset>
@@ -144,13 +144,13 @@
                 </div>
                 <div class="flex-container flex-container__item">
                   <div class="form-element flex-container__item flex-container__item--width--half">
-                    <label class="form-element__label" for="pruchase_date">შეძენის რიცხვი (არჩევითი)</label>
-                    <input class="form-element__input" type="text" id="pruchase_date" name="pruchase_date" placeholder="დდ / თთ / წწწწ">
+                    <label class="form-element__label" for="laptop_pruchase_date">შეძენის რიცხვი (არჩევითი)</label>
+                    <input class="form-element__input" type="text" id="laptop_pruchase_date" name="laptop_pruchase_date" placeholder="დდ / თთ / წწწწ">
                     <span class="form-element__error-message"></span>
                   </div>
                   <div class="form-element flex-container__item flex-container__item--width--half">
-                    <label class="form-element__label" for="price">ლეპტოპის ფასი</label>
-                    <input class="form-element__input form-element__input--type--price" type="text" id="price" name="price" placeholder="0000">
+                    <label class="form-element__label" for="laptop_price">ლეპტოპის ფასი</label>
+                    <input class="form-element__input form-element__input--type--price" type="text" id="laptop_price" name="laptop_price" placeholder="0000" required>
                     <span class="form-element__hint">მხოლოდ ციფრები</span>
                     <span class="form-element__error-message"></span>
                   </div>
@@ -158,11 +158,11 @@
                     <fieldset class="form-element__fieldset">
                       <legend class="form-element__fieldset-legend">ლეპტოპის მდგომარეობა</legend>
                       <label class="custom-radio" for="new">ახალი
-                        <input class="custom-radio__input" type="radio" id="new" name="laptop_conditiona" value="new">
+                        <input class="custom-radio__input" type="radio" id="new" name="laptop_state" value="new" required>
                         <span class="custom-radio__checkmark"></span>
                       </label>
                       <label class="custom-radio" for="secondary">მეორადი
-                        <input class="custom-radio__input" type="radio" id="secondary" name="laptop_conditiona" value="secondary">
+                        <input class="custom-radio__input" type="radio" id="secondary" name="laptop_state" value="secondary">
                         <span class="custom-radio__checkmark"></span>
                       </label>
                     </fieldset>
