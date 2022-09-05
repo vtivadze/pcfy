@@ -25,6 +25,16 @@ window.addEventListener('load', () => {
 
   recordForm.addEventListener('change', (event) => {
     const formElement = event.target;
+    console.log(formElement);
+  });
+
+  document.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!target.classList.contains('custom-select')) {
+      customSelectElements.forEach((item) => {
+        item.classList.remove('custom-select--opened');
+      });
+    }
   });
 });
 

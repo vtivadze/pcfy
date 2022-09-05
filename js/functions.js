@@ -13,12 +13,21 @@ function toggleDescription() {
   }
 }
 
-function toggleCustomSelectOptions(customSelectElement) {
-  const customSelectOptionsList = customSelectElement.querySelector('.custom-select__options-list');
-  if (!customSelectOptionsList) {
-    return;
-  }
-  customSelectElement.classList.toggle('custom-select--opened');
+function toggleCustomSelectOptions(currentCustomSelect) {
+  const currentHandlerName = currentCustomSelect.dataset.handlerName;
+  customSelectElements.forEach((item) => {
+    const handlerName = item.dataset.handlerName;
+    const customSelectOptionsList = item.querySelector('.custom-select__options-list');
+    if (!customSelectOptionsList) {
+      return;
+    }
+
+    if (currentHandlerName === handlerName) {
+      item.classList.toggle('custom-select--opened');
+    } else {
+      item.classList.remove('custom-select--opened');
+    }
+  });
 }
 
 function getCustomSelectElementHandlerName(customSelectElement) {
@@ -117,6 +126,7 @@ function createCustomSelectOptions(data) {
     const li = document.createElement('li');
     li.classList.add('custom-select__options-list-item');
     li.innerText = item.name;
+    li.setAttribute('data-item-id', item.id);
     li.addEventListener('click', handleCustomSelectItemClick);
     ul.appendChild(li);
   });
@@ -127,19 +137,19 @@ function createCustomSelectOptions(data) {
 function handleCustomSelectItemClick(event) {
   const element = event.currentTarget;
   const itemName = element.innerText;
-  const itemId = element.dataset.optionId;
-  console.log(element);
+  const itemId = element.dataset.itemId;
+
   const customSelectTitle = element
     .closest('.custom-select')
     .querySelector('.custom-select__title');
   customSelectTitle.innerText = itemName;
 
-  const customSelectInput = element
+  const customSelectRealSelect = element
     .closest('.custom-select')
-    .querySelector('.custom-select__input');
-  customSelectInput.value = itemId;
+    .querySelector('.custom-select__real-select');
+  customSelectRealSelect.value = itemId;
 
-  if (customSelectInput.name === 'team_id') {
+  if (customSelectRealSelect.name === 'team_id') {
     populatePositionCustomSelect(itemId);
   }
 }
@@ -150,6 +160,11 @@ function emptyCustomSelectElement(customSelect) {
     while(optionsList.firstChild) {
       optionsList.firstChild.remove();
     };
+  }
+
+  const customSelectRealSelect = customSelect.querySelector('.custom-select__real-select');
+  while(customSelectRealSelect.lastChild.innerText !== '') {
+    customSelectRealSelect.lastChild.remove();
   }
 }
 
