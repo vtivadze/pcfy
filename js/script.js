@@ -34,7 +34,7 @@ window.addEventListener('load', () => {
       dataName = customSelectRealSelect.name;
       dataValue = customSelectRealSelect.value;
     }
-    saveDataIntoLocalStorage(dataValue, 'form-' + dataName)
+    saveDataIntoLocalStorage(dataValue, LOCAL_STORAGE_FORM_DATA_PREFIX + dataName)
   });
 
   document.addEventListener('click', (event) => {
@@ -45,5 +45,7 @@ window.addEventListener('load', () => {
       });
     }
   });
+
+  populateFormElementInputs();
 });
 

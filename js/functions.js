@@ -93,8 +93,11 @@ function formateLocalStorageItemName(itemName) {
 
 function populateCustomSelectElement(customSelectElement, teamId = null) {
   const itemName = getCustomSelectElementHandlerName(customSelectElement);
-  if (itemName === 'positions' && teamId === null) {
-    return;
+  if (itemName === 'positions') {
+    teamId = teamId || getDataFromLocalStorage('form-team_id');
+    if (teamId === null) {
+      return;
+    }
   }
 
   let data = getDataFromLocalStorage(itemName);
@@ -116,6 +119,7 @@ function populateRealSelectOptions(customSelectElement, data) {
     option.setAttribute('value', item.id);
     realSelect.appendChild(option);
   });
+  selectElements[realSelect.name] = realSelect;
 }
 
 function createCustomSelectOptions(data) {
@@ -175,4 +179,48 @@ function populatePositionCustomSelect(itemId) {
   emptyCustomSelectElement(customSelect);
   populateCustomSelectElement(customSelect, itemId);
   customSelect.querySelector('.custom-select__title').innerText = 'პოზიცია';
+}
+
+function populateFormElementInputs() {
+  Promise.resolve().then(() => {
+    const entries = Object.entries(localStorage);
+    const prefix = LOCAL_STORAGE_PREFIX + '_' + LOCAL_STORAGE_FORM_DATA_PREFIX;
+    
+    for (let i = 0; i < entries.length; i++) {
+      const item = entries[i];
+      const itemKey = item[0];
+      const itemValue = item[1];
+      if (!itemKey.startsWith(prefix)) {
+        continue;
+      }
+  
+      const formElementName = itemKey.substring(prefix.length);
+      let element = document.querySelector(`[name="${formElementName}"]`);
+      if (element.tagName === 'SELECT') {
+        element = selectElements[formElementName];
+      }
+      if (element) {
+        element.value = itemValue;
+      }
+      if (element.tagName === 'SELECT') {
+        const label = document
+          .querySelector(`[name="${formElementName}"]`)
+          .parentElement
+          .querySelector('label');
+
+        let itemDisplayValue = null;
+        for (let item of element.children) {
+          const itemAttributeValue = item.getAttribute('value');
+          if (itemAttributeValue === itemValue) {
+            itemDisplayValue = item.innerText;
+          }
+        }
+
+        label.innerText = itemDisplayValue;
+      }
+    }
+  });
+
+
+    
 }
