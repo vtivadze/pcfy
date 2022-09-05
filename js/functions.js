@@ -152,6 +152,8 @@ function handleCustomSelectItemClick(event) {
   if (customSelectRealSelect.name === 'team_id') {
     populatePositionCustomSelect(itemId);
   }
+
+  element.dispatchEvent(new window.Event('change', { bubbles: true }));
 }
 
 function emptyCustomSelectElement(customSelect) {
