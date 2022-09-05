@@ -24,8 +24,17 @@ window.addEventListener('load', () => {
   }
 
   recordForm.addEventListener('change', (event) => {
-    const formElement = event.target;
-    console.log(formElement);
+    const element = event.target;
+    let dataName= element.name;
+    let dataValue = element.value;
+    if (!dataName) {
+      const customSelectRealSelect = element
+        .closest('.custom-select')
+        .querySelector('.custom-select__real-select');
+      dataName = customSelectRealSelect.name;
+      dataValue = customSelectRealSelect.value;
+    }
+    saveDataIntoLocalStorage(dataValue, 'form-' + dataName)
   });
 
   document.addEventListener('click', (event) => {
