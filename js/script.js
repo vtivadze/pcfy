@@ -1,5 +1,9 @@
 window.addEventListener('load', () => {
   forwardButton.addEventListener('click', () => {
+    if (!checkValidation('employee')) {
+      return false;
+    }
+
     hideStepData(employeeData);
     showStepData(laptopData);
     toggleDescription();

@@ -66,11 +66,6 @@ async function loadCustomSelectOptions(handler) {
   return data;
 }
 
-function setCustomSelectError(customSelectElement) {
-  const parent = customSelectElement.parentElement;
-  parent.classList.add('form-element--error');
-}
-
 function saveDataIntoLocalStorage(data, itemName) {
   itemName = formateLocalStorageItemName(itemName);
   localStorage.setItem(itemName, data);
@@ -213,14 +208,82 @@ function populateFormElementInputs() {
           const itemAttributeValue = item.getAttribute('value');
           if (itemAttributeValue === itemValue) {
             itemDisplayValue = item.innerText;
+            break;
           }
         }
 
-        label.innerText = itemDisplayValue;
+        label.innerText = itemDisplayValue ? itemDisplayValue : label.dataset.defaultTitle;
+      }
+    }
+  });
+}
+
+function checkValidation(validationTarget) {
+  let isValid = true;
+  let errorMessage;
+
+  const rules = Object.entries(validationRules[validationTarget]);
+
+  rules.forEach((item) => {
+    const itemName = item[0];
+    const itemRules = Object.entries(item[1]);
+ 
+    const element = document.querySelector(`[name="${itemName}"]`);
+    const value = element.value
+
+    for (let i = 0; i < itemRules.length; i++) {
+      const rule = itemRules[i];
+      const ruleName = rule[0];
+      const ruleOptions = rule[1];
+
+      const param = ruleOptions.param;
+      const message = ruleOptions.message;
+      let validationResult = validate[ruleName](value, param, message);
+
+      // console.log(itemName, value, param, message, validationResult);
+
+      if (typeof validationResult === 'string') {
+        errorMessage = validationResult;
+        validationResult = false;
+      }
+
+      if (isValid && !validationResult) {
+        isValid = false;
+      }
+
+      if (!validationResult) {
+        setCustomSelectError(element, errorMessage);
+        break;
+      } else {
+        removeErrorFromElement(element);
       }
     }
   });
 
+  return isValid;
+}
 
-    
+function setCustomSelectError(customSelectElement, errorMessage = null) {
+  // console.log('shecdoma');
+  const formElement = customSelectElement.closest('.form-element');
+  formElement.classList.add('form-element--error');
+  if (errorMessage) {
+    const formElementErrorMessage = formElement.querySelector('.form-element__error-message');
+    if (formElementErrorMessage) {
+      formElementErrorMessage.innerText = errorMessage;
+    }
+  }
+}
+
+function removeErrorFromElement(element) {
+  // console.log('warmateba');
+  const formElement = element.closest('.form-element');
+  if (formElement.classList.contains('form-element--error')) {
+    formElement.classList.remove('form-element--error');
+  
+    const formElementErrorMessage = formElement.querySelector('.form-element__error-message');
+    if (formElementErrorMessage) {
+      formElementErrorMessage.innerText = '';
+    } 
+  }
 }
