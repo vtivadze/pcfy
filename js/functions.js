@@ -93,8 +93,20 @@ function populateCustomSelectElement(customSelectElement, teamId = null) {
     data = data.filter((item) => item.team_id === +teamId);
   }
 
+  populateRealSelectOptions(customSelectElement, data);
+
   const customSelectOptions = createCustomSelectOptions(data);
   customSelectElement.appendChild(customSelectOptions);
+}
+
+function populateRealSelectOptions(customSelectElement, data) {
+  const realSelect = customSelectElement.querySelector('.custom-select__real-select');
+  data.forEach((item) => {
+    const option = document.createElement('option');
+    option.innerText = item.name;
+    option.setAttribute('value', item.id);
+    realSelect.appendChild(option);
+  });
 }
 
 function createCustomSelectOptions(data) {
@@ -105,7 +117,6 @@ function createCustomSelectOptions(data) {
     const li = document.createElement('li');
     li.classList.add('custom-select__options-list-item');
     li.innerText = item.name;
-    li.setAttribute('data-option-id', item.id);
     li.addEventListener('click', handleCustomSelectItemClick);
     ul.appendChild(li);
   });
@@ -117,7 +128,7 @@ function handleCustomSelectItemClick(event) {
   const element = event.currentTarget;
   const itemName = element.innerText;
   const itemId = element.dataset.optionId;
-
+  console.log(element);
   const customSelectTitle = element
     .closest('.custom-select')
     .querySelector('.custom-select__title');

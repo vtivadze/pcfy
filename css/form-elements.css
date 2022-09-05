@@ -149,7 +149,7 @@
   border: 1px solid var(--error-color);
 }
 
-.custom-select__input {
+.custom-select__real-select {
   position: absolute;
   width: 0;
   height: 0;

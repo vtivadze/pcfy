@@ -6,6 +6,7 @@ const backwardButton = document.getElementById('backward-button');
 const forwardButton = document.getElementById('forward-button');
 
 const customSelectElements = document.querySelectorAll('.custom-select');
+const recordForm = document.querySelector('.record-form');
 
 
 

@@ -23,5 +23,8 @@ window.addEventListener('load', () => {
     });
   }
 
-
+  recordForm.addEventListener('change', (event) => {
+    const formElement = event.target;
+  });
 });
+

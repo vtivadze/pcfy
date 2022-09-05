@@ -36,7 +36,7 @@
           <ul class="record-groups__list">
             <li id="employee-data" class="record-groups__item">
               <section class="record-groups__employee flex-container">
-                <div class="form-element form-element--error flex-container__item flex-container__item--width--half">
+                <div class="form-element flex-container__item flex-container__item--width--half">
                   <label class="form-element__label" for="name">სახელი</label>
                   <input class="form-element__input" type="text" id="name" name="name" placeholder="გრიშა" required>
                   <span class="form-element__hint">მინიმუმ 2 სიმბოლო, ქართული ასოები</span>
@@ -50,14 +50,18 @@
                 </div>
                 <div class="form-element flex-container__item">
                   <div class="custom-select" data-handler-name="teams">
-                    <input class="custom-select__input" type="number" name="team_id" required>
-                    <div class="custom-select__title">თიმი</div>
+                    <legend for="team_id" class="custom-select__title">თიმი</legend>
+                    <select class="custom-select__real-select" name="team_id" id="team_id">
+                      <option value=""></option>
+                    </select>
                   </div>
                 </div>
                 <div class="form-element flex-container__item">
                   <div class="custom-select" data-handler-name="positions">
-                    <input class="custom-select__input" type="number" name="position_id" required>
-                    <div class="custom-select__title">პოზიცია</div>
+                    <label class="custom-select__title" for="position_id">პოზიცია</label>
+                    <select class="custom-select__real-select" name="position_id" id="position_id">
+                      <option value=""></option>
+                    </select>
                   </div>
                 </div>
                 <div class="form-element flex-container__item">
@@ -98,16 +102,20 @@
                   </div>
                   <div class="form-element flex-container__item flex-container__align--center flex-container__item--width--half">
                     <div class="custom-select" data-handler-name="brands">
-                      <input class="custom-select__input" type="text" name="laptop_brand_id" required>
-                      <div class="custom-select__title">ლეპტოპის ბრენდი</div>
+                      <label class="custom-select__title" for="laptop_brand_id">ლეპტოპის ბრენდი</label>
+                      <select class="custom-select__real-select" name="laptop_brand_id" id="laptop_brand_id">
+                        <option value=""></option>
+                      </select>
                     </div>
                   </div>
                 </div>
                 <div class="flex-container flex-container__item">
                   <div class="form-element flex-container__item flex-container__align--center flex-container__item--width--third">
                     <div class="custom-select" data-handler-name="cpus">
-                      <input class="custom-select__input" type="text" name="laptop_cpu" required>
-                      <div class="custom-select__title">CPU</div>
+                      <label class="custom-select__title" for="laptop_cpu">CPU</label>
+                      <select class="custom-select__real-select" name="laptop_cpu" id="laptop_cpu">
+                        <option value=""></option>
+                      </select>
                     </div>
                   </div>
                   <div class="form-element flex-container__item flex-container__item--width--third">
