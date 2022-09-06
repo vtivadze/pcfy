@@ -15,6 +15,14 @@ window.addEventListener('load', () => {
     toggleDescription();
   });
 
+  saveButton.addEventListener('click', () => {
+    if (!checkValidation('laptop')) {
+      return false;
+    }
+
+    console.log('saved');
+  });
+
   customSelectElements.forEach(async (customSelectElement) => {
     await saveCustomSelectOptionsDataInLocalStorage(customSelectElement);
     populateCustomSelectElement(customSelectElement);

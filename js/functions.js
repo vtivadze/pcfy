@@ -199,7 +199,10 @@ function populateFormElementInputs() {
       if (formElementName === 'laptop_image') {
         itemValue = JSON.parse(itemValue);
         transformLaptopImageContainer(itemValue.fileName, itemValue.fileSize);
-        customPhotoUploadImage.classList.add('custom-photo-upload__image--hidden')
+        customPhotoUploadImage.classList.add('custom-photo-upload__image--hidden');
+      } else if (element.type === 'radio') {
+        const radioButton = document.getElementById(itemValue);
+        radioButton.checked = true;
       } else if (element) {
         element.value = itemValue;
       }
@@ -234,9 +237,21 @@ function checkValidation(validationTarget) {
   rules.forEach((item) => {
     const itemName = item[0];
     const itemRules = Object.entries(item[1]);
+    const isRequired = validationRules[validationTarget][itemName].required.param;
  
     const element = document.querySelector(`[name="${itemName}"]`);
-    const value = element.value
+    let value = element.value;
+
+    if (element.type === 'radio') {
+      value = null;
+      const radios = document.getElementsByName(itemName);
+      radios.forEach((item) => {
+        if (item.checked) {
+          value = item.value;
+        }
+      });
+    }
+
 
     for (let i = 0; i < itemRules.length; i++) {
       const rule = itemRules[i];
@@ -245,7 +260,7 @@ function checkValidation(validationTarget) {
 
       const param = ruleOptions.param;
       const message = ruleOptions.message;
-      let validationResult = validate[ruleName](value, param, message);
+      let validationResult = validate[ruleName](value, param, message, isRequired);
 
       if (typeof validationResult === 'string') {
         errorMessage = validationResult;
@@ -304,6 +319,8 @@ function transformLaptopImageContainer(fileName, fileSize) {
   customPhotoUploadLabel.style.display = 'none';
   document.querySelector('.record-groups__laptop > .flex-container:first-child')
     .classList.add('flex-container__item--transformed');
+
+  customPhotoUploadImageContainer.closest('.form-element').classList.remove('form-element--error');
 }
 
 function handleCustomPphotoUploadButtonClick() {

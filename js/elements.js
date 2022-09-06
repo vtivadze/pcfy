@@ -4,6 +4,7 @@ const stepDescriptionsList = document.getElementById('step-descriptions-list');
 
 const backwardButton = document.getElementById('backward-button');
 const forwardButton = document.getElementById('forward-button');
+const saveButton = document.getElementById('save-button');
 
 const customSelectElements = document.querySelectorAll('.custom-select');
 const recordForm = document.querySelector('.record-form');
