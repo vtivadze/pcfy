@@ -197,6 +197,7 @@
 }
 
 .custom-photo-upload {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -207,6 +208,60 @@
   background: #f7f7f7;
   border: 2px dashed #4386a9;
   border-radius: 18px;
+}
+
+.custom-photo-upload__image-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -100;
+}
+
+.custom-photo-upload__image-container--uploaded {
+  z-index: 100;
+}
+
+.custom-photo-upload__description {
+  position: absolute;
+  left: 0;
+  bottom: -67px;
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 18px;
+  padding-left: 47px;
+  background-image: url("../img//icon-image-upload-success.svg");
+  background-repeat: no-repeat;
+  background-size: 22px 22px;
+  background-position: left 0px center;
+}
+
+.custom-photo-upload__description--hidden {
+  display: none;
+}
+
+.custom-photo-upload__file-name {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21px;
+  color: #202020;
+}
+
+.custom-photo-upload__file-size {
+  color: #5f5f5f;
+}
+
+.custom-photo-upload__image {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
+}
+
+.custom-photo-upload__image--hidden {
+  display: none;
 }
 
 .form-element--error .custom-photo-upload {
@@ -276,6 +331,12 @@
 .custom-photo-upload__button {
   padding-left: 71.5px;
   padding-right: 71.5px;
+}
+
+.custom-photo-upload__button--uploaded {
+  position: absolute;
+  right: 0;
+  bottom: -85px;
 }
 
 .form-element__fieldset {

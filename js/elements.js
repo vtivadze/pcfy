@@ -8,5 +8,15 @@ const forwardButton = document.getElementById('forward-button');
 const customSelectElements = document.querySelectorAll('.custom-select');
 const recordForm = document.querySelector('.record-form');
 
+const customPhotoUpload = document.querySelector('.custom-photo-upload');
+const customPhotoUploadImageContainer = document.querySelector('.custom-photo-upload__image-container');
+const customPhotoUploadImage = customPhotoUpload.querySelector('.custom-photo-upload__image');
+const customPhotoUploadLabel = document.querySelector('.custom-photo-upload__label');
+const customPhotoUploadButton = document.querySelector('.custom-photo-upload__button');
+const customPhotoUploadInput = document.querySelector('.custom-photo-upload__input');
+const customPhotoUploadDescription = document.querySelector('.custom-photo-upload__description');
+const customPhotoUploadFileName = customPhotoUploadDescription.querySelector('.custom-photo-upload__file-name');
+const customPhotoUploadFileSize = customPhotoUploadDescription.querySelector('.custom-photo-upload__file-size');
+
 let selectElements = {};
 

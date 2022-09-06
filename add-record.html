@@ -91,7 +91,14 @@
                         <span class="custom-photo-upload__mobile-label">ლეოპტოპის ფოტოს<br>ატვირთვა</span>
                       </label>
                       <input class="custom-photo-upload__input" type="file" name="laptop_image" required>
-                      <button class="button custom-photo-upload__button">ატვირთე</button>
+                      <div class="image-container custom-photo-upload__image-container">
+                        <img class="custom-photo-upload__image custom-photo-upload__image--hidden" src="" title="Laptop image">
+                      </div>
+                      <button class="button custom-photo-upload__button" type="button">ატვირთე</button>
+                      <div class="custom-photo-upload__description custom-photo-upload__description--hidden">
+                        <span class="custom-photo-upload__file-name"></span>
+                        <span class="custom-photo-upload__file-size"></span>
+                      </div>
                     </div>
                   </div>
                   <div class="form-element flex-container__item flex-container__item--width--half">

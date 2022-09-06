@@ -184,19 +184,26 @@ function populateFormElementInputs() {
     for (let i = 0; i < entries.length; i++) {
       const item = entries[i];
       const itemKey = item[0];
-      const itemValue = item[1];
+      let itemValue = item[1];
       if (!itemKey.startsWith(prefix)) {
         continue;
       }
   
       const formElementName = itemKey.substring(prefix.length);
       let element = document.querySelector(`[name="${formElementName}"]`);
+
       if (element.tagName === 'SELECT') {
         element = selectElements[formElementName];
       }
-      if (element) {
+
+      if (formElementName === 'laptop_image') {
+        itemValue = JSON.parse(itemValue);
+        transformLaptopImageContainer(itemValue.fileName, itemValue.fileSize);
+        customPhotoUploadImage.classList.add('custom-photo-upload__image--hidden')
+      } else if (element) {
         element.value = itemValue;
       }
+
       if (element.tagName === 'SELECT') {
         const label = document
           .querySelector(`[name="${formElementName}"]`)
@@ -240,8 +247,6 @@ function checkValidation(validationTarget) {
       const message = ruleOptions.message;
       let validationResult = validate[ruleName](value, param, message);
 
-      // console.log(itemName, value, param, message, validationResult);
-
       if (typeof validationResult === 'string') {
         errorMessage = validationResult;
         validationResult = false;
@@ -264,7 +269,6 @@ function checkValidation(validationTarget) {
 }
 
 function setCustomSelectError(customSelectElement, errorMessage = null) {
-  // console.log('shecdoma');
   const formElement = customSelectElement.closest('.form-element');
   formElement.classList.add('form-element--error');
   if (errorMessage) {
@@ -276,7 +280,6 @@ function setCustomSelectError(customSelectElement, errorMessage = null) {
 }
 
 function removeErrorFromElement(element) {
-  // console.log('warmateba');
   const formElement = element.closest('.form-element');
   if (formElement.classList.contains('form-element--error')) {
     formElement.classList.remove('form-element--error');
@@ -286,4 +289,18 @@ function removeErrorFromElement(element) {
       formElementErrorMessage.innerText = '';
     } 
   }
+}
+
+function transformLaptopImageContainer(fileName, fileSize) {
+  customPhotoUploadImageContainer.classList.add('custom-photo-upload__image-container--uploaded');
+
+  customPhotoUploadButton.classList.add('custom-photo-upload__button--uploaded');
+  customPhotoUploadButton.innerText = 'თავიდან ატვირთე';
+
+  customPhotoUploadFileName.innerText = fileName + ',';
+  customPhotoUploadFileSize.innerText = fileSize + ' mb';
+  customPhotoUploadDescription.classList.remove('custom-photo-upload__description--hidden');
+
+  customPhotoUploadLabel.style.display = 'none';
+  document.querySelector('.record-groups__laptop > .flex-container:first-child').style.rowGap='174px';
 }

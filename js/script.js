@@ -31,6 +31,7 @@ window.addEventListener('load', () => {
     const element = event.target;
     let dataName= element.name;
     let dataValue = element.value;
+    
     if (!dataName) {
       const customSelectRealSelect = element
         .closest('.custom-select')
@@ -38,6 +39,15 @@ window.addEventListener('load', () => {
       dataName = customSelectRealSelect.name;
       dataValue = customSelectRealSelect.value;
     }
+
+    if (dataName === 'laptop_image') {
+      dataValue = {
+        fileName: customPhotoUploadFileName.innerText,
+        fileSize: customPhotoUploadFileSize.innerText,
+      };
+      dataValue = JSON.stringify(dataValue);
+    }
+
     saveDataIntoLocalStorage(dataValue, LOCAL_STORAGE_FORM_DATA_PREFIX + dataName)
   });
 
@@ -48,6 +58,21 @@ window.addEventListener('load', () => {
         item.classList.remove('custom-select--opened');
       });
     }
+  });
+
+  customPhotoUploadButton.addEventListener('click', () => {
+    customPhotoUploadInput.click();
+    customPhotoUploadInput.addEventListener('change', () => {
+      const file = customPhotoUploadInput.files[0];
+      const fileName = file.name.toLowerCase();
+      const fileSize = +(file.size / 1000000).toFixed(2);
+
+      const image = customPhotoUploadImageContainer.querySelector('img');
+      customPhotoUploadImage.src = URL.createObjectURL(file);
+      customPhotoUploadImage.classList.remove('custom-photo-upload__image--hidden');
+
+      transformLaptopImageContainer(fileName, fileSize);
+    });
   });
 
   populateFormElementInputs();
