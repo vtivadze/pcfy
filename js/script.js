@@ -477,6 +477,7 @@ function populateFormElementInputs() {
       const item = entries[i];
       const itemKey = item[0];
       let itemValue = item[1];
+
       if (!itemKey.startsWith(prefix)) {
         continue;
       }
@@ -543,7 +544,6 @@ function checkValidation(validationTarget) {
         }
       });
     }
-
 
     for (let i = 0; i < itemRules.length; i++) {
       const rule = itemRules[i];
