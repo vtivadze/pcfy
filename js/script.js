@@ -61,18 +61,11 @@ window.addEventListener('load', () => {
   });
 
   customPhotoUploadButton.addEventListener('click', () => {
-    customPhotoUploadInput.click();
-    customPhotoUploadInput.addEventListener('change', () => {
-      const file = customPhotoUploadInput.files[0];
-      const fileName = file.name.toLowerCase();
-      const fileSize = +(file.size / 1000000).toFixed(2);
+    handleCustomPphotoUploadButtonClick();
+  });
 
-      const image = customPhotoUploadImageContainer.querySelector('img');
-      customPhotoUploadImage.src = URL.createObjectURL(file);
-      customPhotoUploadImage.classList.remove('custom-photo-upload__image--hidden');
-
-      transformLaptopImageContainer(fileName, fileSize);
-    });
+  customPhotoUploadMobileLabel.addEventListener('click', () => {
+    handleCustomPphotoUploadButtonClick();
   });
 
   populateFormElementInputs();

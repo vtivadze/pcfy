@@ -297,10 +297,26 @@ function transformLaptopImageContainer(fileName, fileSize) {
   customPhotoUploadButton.classList.add('custom-photo-upload__button--uploaded');
   customPhotoUploadButton.innerText = 'თავიდან ატვირთე';
 
-  customPhotoUploadFileName.innerText = fileName + ',';
+  customPhotoUploadFileName.innerText = fileName;
   customPhotoUploadFileSize.innerText = fileSize + ' mb';
   customPhotoUploadDescription.classList.remove('custom-photo-upload__description--hidden');
 
   customPhotoUploadLabel.style.display = 'none';
-  document.querySelector('.record-groups__laptop > .flex-container:first-child').style.rowGap='174px';
+  document.querySelector('.record-groups__laptop > .flex-container:first-child')
+    .classList.add('flex-container__item--transformed');
+}
+
+function handleCustomPphotoUploadButtonClick() {
+  customPhotoUploadInput.click();
+  customPhotoUploadInput.addEventListener('change', () => {
+    const file = customPhotoUploadInput.files[0];
+    const fileName = file.name.toLowerCase();
+    const fileSize = +(file.size / 1000000).toFixed(2);
+
+    const image = customPhotoUploadImageContainer.querySelector('img');
+    customPhotoUploadImage.src = URL.createObjectURL(file);
+    customPhotoUploadImage.classList.remove('custom-photo-upload__image--hidden');
+
+    transformLaptopImageContainer(fileName, fileSize);
+  });
 }

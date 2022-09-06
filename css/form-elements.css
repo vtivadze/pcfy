@@ -196,6 +196,16 @@
   background-color: #e7f0f8;
 }
 
+.record-groups__laptop > .flex-container__item.flex-container__item--transformed {
+  row-gap: 174px;
+}
+
+@media only screen and (max-width: 390px) {
+  .record-groups__laptop > .flex-container__item.flex-container__item--transformed  {
+    row-gap: 26px;
+  }
+}
+
 .custom-photo-upload {
   position: relative;
   display: flex;
@@ -208,6 +218,12 @@
   background: #f7f7f7;
   border: 2px dashed #4386a9;
   border-radius: 18px;
+}
+
+@media only screen and (max-width: 390px) {
+  .custom-photo-upload {
+    margin-bottom: 41px;
+  }
 }
 
 .custom-photo-upload__image-container {
@@ -231,10 +247,24 @@
   justify-content: flex-end;
   column-gap: 18px;
   padding-left: 47px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21px;
   background-image: url("../img//icon-image-upload-success.svg");
   background-repeat: no-repeat;
   background-size: 22px 22px;
   background-position: left 0px center;
+}
+
+@media only screen and (max-width: 390px) {
+  .custom-photo-upload__description {
+    bottom: -53px;
+    flex-direction: column;
+    row-gap: 4px;
+    padding-left: 37px;
+    font-size: 12px;
+    line-height: 14px;
+  }
 }
 
 .custom-photo-upload__description--hidden {
@@ -242,9 +272,6 @@
 }
 
 .custom-photo-upload__file-name {
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 21px;
   color: #202020;
 }
 
@@ -337,6 +364,16 @@
   position: absolute;
   right: 0;
   bottom: -85px;
+}
+
+@media only screen and (max-width: 390px) {
+  .custom-photo-upload__button.custom-photo-upload__button--uploaded {
+    bottom: -63px;
+    display: block;
+    padding: 12px 10.5px;
+    font-size: 18px;
+    line-height: 22px;
+  }
 }
 
 .form-element__fieldset {

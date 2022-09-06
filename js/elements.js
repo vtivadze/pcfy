@@ -17,6 +17,7 @@ const customPhotoUploadInput = document.querySelector('.custom-photo-upload__inp
 const customPhotoUploadDescription = document.querySelector('.custom-photo-upload__description');
 const customPhotoUploadFileName = customPhotoUploadDescription.querySelector('.custom-photo-upload__file-name');
 const customPhotoUploadFileSize = customPhotoUploadDescription.querySelector('.custom-photo-upload__file-size');
+const customPhotoUploadMobileLabel = document.querySelector('.custom-photo-upload__mobile-label');
 
 let selectElements = {};
 
